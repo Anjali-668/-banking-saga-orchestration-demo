@@ -12,7 +12,18 @@
   </properties>
 
   <dependencyManagement>
-    <dependencies>
+    <dependencies>  
+<dependency>
+    <groupId>com.netflix.conductor</groupId>
+    <artifactId>conductor-common</artifactId>
+    <version>${conductor.client.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+    <version>2.0.9</version>
+  </dependency>
+
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
