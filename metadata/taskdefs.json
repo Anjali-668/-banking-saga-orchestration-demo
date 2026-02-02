@@ -1,0 +1,69 @@
+[
+  {
+    "name": "create_loan_app",
+    "retryCount": 2,
+    "timeoutSeconds": 120,
+    "timeoutPolicy": "TIME_OUT_WF"
+  },
+  {
+    "name": "kyc_check",
+    "retryCount": 2,
+    "timeoutSeconds": 120,
+    "timeoutPolicy": "TIME_OUT_WF"
+  },
+  {
+    "name": "credit_check",
+    "retryCount": 2,
+    "timeoutSeconds": 120,
+    "timeoutPolicy": "TIME_OUT_WF"
+  },
+  {
+    "name": "underwrite_decision",
+    "retryCount": 2,
+    "timeoutSeconds": 120,
+    "timeoutPolicy": "TIME_OUT_WF"
+  },
+  {
+    "name": "reserve_funds",
+    "retryCount": 2,
+    "timeoutSeconds": 120,
+    "timeoutPolicy": "TIME_OUT_WF"
+  },
+  {
+    "name": "disburse_funds",
+    "retryCount": 2,
+    "timeoutSeconds": 120,
+    "timeoutPolicy": "TIME_OUT_WF"
+  },
+  {
+    "name": "post_ledger",
+    "retryCount": 2,
+    "timeoutSeconds": 120,
+    "timeoutPolicy": "TIME_OUT_WF"
+  },
+  {
+    "name": "send_success_notification",
+    "retryCount": 1,
+    "timeoutSeconds": 60
+  },
+  {
+    "name": "rollback_ledger",
+    "retryCount": 2,
+    "timeoutSeconds": 120
+  },
+  {
+    "name": "release_funds",
+    "retryCount": 2,
+    "timeoutSeconds": 120
+  },
+  {
+    "name": "cancel_loan_app",
+    "retryCount": 2,
+    "timeoutSeconds": 120
+  },
+  {
+    "name": "send_failure_notification",
+    "retryCount": 1,
+    "timeoutSeconds": 60
+  }
+]

@@ -1,0 +1,36 @@
+
+services:
+  loan-service:
+    build: ../services/loan-service
+    image: bank/loan-service:demo
+    environment:
+      - CONDUCTOR_SERVER_URL=http://conductor-server:8080/api/
+    depends_on:
+      - conductor-server
+    networks:
+      - conductor_net
+
+  risk-service:
+    build: ../services/risk-service
+    image: bank/risk-service:demo
+    environment:
+      - CONDUCTOR_SERVER_URL=http://conductor-server:8080/api/
+    depends_on:
+      - conductor-server
+    networks:
+      - conductor_net
+
+  corebanking-service:
+    build: ../services/corebanking-service
+    image: bank/corebanking-service:demo
+    environment:
+      - CONDUCTOR_SERVER_URL=http://conductor-server:8080/api/
+    depends_on:
+      - conductor-server
+    networks:
+      - conductor_net
+
+networks:
+  conductor_net:
+    external: true
+    name: docker_default  # Replace with the actual network used by conductor-server
