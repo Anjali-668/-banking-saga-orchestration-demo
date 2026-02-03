@@ -33,4 +33,4 @@ services:
 networks:
   conductor_net:
     external: true
-    name: docker_default  # Replace with the actual network used by conductor-server
+    name: docker_internal  # Replace with the actual network used by conductor-server
