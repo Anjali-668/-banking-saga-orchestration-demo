@@ -65,5 +65,38 @@
     "name": "send_failure_notification",
     "retryCount": 1,
     "timeoutSeconds": 60
+  },
+  {
+    "createdBy": "anjali",
+    "name": "fraud_check",
+    "description": "Risk engine rule evaluation",
+    "responseTimeoutSeconds": 30,
+    "timeoutSeconds": 60,
+    "retryCount": 2,
+    "retryLogic": "FIXED",
+    "retryDelaySeconds": 5,
+    "inputKeys": ["applicant","amount"],
+    "outputKeys": ["riskScore","flagged"]
+  },
+  {
+    "createdBy": "anjali",
+    "name": "after_wait_audit",
+    "description": "Audit after WAIT",
+    "responseTimeoutSeconds": 30,
+    "timeoutSeconds": 60
+  },
+  {
+    "createdBy": "anjali",
+    "name": "escalate_to_manual_review",
+    "description": "Escalate workflow failures",
+    "responseTimeoutSeconds": 30,
+    "timeoutSeconds": 120
+  },
+  {
+    "createdBy": "anjali",
+    "name": "send_rejection_notification",
+    "description": "Notify user about loan rejection",
+    "responseTimeoutSeconds": 30,
+    "timeoutSeconds": 60
   }
 ]
