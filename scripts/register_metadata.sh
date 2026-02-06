@@ -17,3 +17,5 @@ curl -sS -X POST -H "Content-Type: application/json"   -d @../metadata/loan_comp
 
 echo -e "
 Done."
+
+curl -X PUT -H "Content-Type: application/json"  -d @../metadata/loan_sequential_workflow.json  "$API/metadata/workflow"
