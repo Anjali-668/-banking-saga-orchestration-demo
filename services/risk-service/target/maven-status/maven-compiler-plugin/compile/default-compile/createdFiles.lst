@@ -1,0 +1,5 @@
+com/bank/risk/workers/KycCheckWorker.class
+com/bank/risk/RiskServiceApplication.class
+com/bank/risk/workers/UnderwriteDecisionWorker.class
+com/bank/risk/config/ConductorConfig.class
+com/bank/risk/workers/CreditCheckWorker.class
