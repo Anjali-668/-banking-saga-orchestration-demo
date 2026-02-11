@@ -1,5 +1,5 @@
 {
-  "name": "loan_sequential_workflow",
+  "name": "sequential_workflow",
   "version": 1,
   "schemaVersion": 2,
   "inputParameters": ["applicant", "amount"],
