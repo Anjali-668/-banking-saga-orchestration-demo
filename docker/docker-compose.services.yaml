@@ -4,7 +4,7 @@ services:
     build: ../services/loan-service
     image: bank/loan-service:demo
     environment:
-      - CONDUCTOR_SERVER_URL: http://aps1kfkalbdv1-1956246462.ap-south-1.elb.amazonaws.com/api/
+       CONDUCTOR_SERVER_URL: http://aps1kfkalbdv1-1956246462.ap-south-1.elb.amazonaws.com/api/
     depends_on:
       - conductor-server
     networks:
@@ -14,7 +14,7 @@ services:
     build: ../services/risk-service
     image: bank/risk-service:demo
     environment:
-      - CONDUCTOR_SERVER_URL: http://aps1kfkalbdv1-1956246462.ap-south-1.elb.amazonaws.com/api/
+       CONDUCTOR_SERVER_URL: http://aps1kfkalbdv1-1956246462.ap-south-1.elb.amazonaws.com/api/
     depends_on:
       - conductor-server
     networks:
@@ -24,7 +24,7 @@ services:
     build: ../services/corebanking-service
     image: bank/corebanking-service:demo
     environment:
-      - CONDUCTOR_SERVER_URL: http://aps1kfkalbdv1-1956246462.ap-south-1.elb.amazonaws.com/api/
+       CONDUCTOR_SERVER_URL: http://aps1kfkalbdv1-1956246462.ap-south-1.elb.amazonaws.com/api/
     depends_on:
       - conductor-server
     networks:
