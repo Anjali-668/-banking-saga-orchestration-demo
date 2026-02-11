@@ -9,13 +9,13 @@ curl -sS -X POST -H "Content-Type: application/json"   -d @../metadata/taskdefs.
 
 echo -e "
 Registering main workflow..."
-curl -sS -X POST -H "Content-Type: application/json"   -d @../metadata/loan_saga_workflow.json   "$CONDUCTOR/metadata/workflow"
+curl -sS -X POST -H "Content-Type: application/json"   -d @../metadata/saga_workflow.json   "$CONDUCTOR/metadata/workflow"
 
 echo -e "
 Registering compensation workflow..."
-curl -sS -X POST -H "Content-Type: application/json"   -d @../metadata/loan_compensation_workflow.json   "$CONDUCTOR/metadata/workflow"
+curl -sS -X POST -H "Content-Type: application/json"   -d @../metadata/compensation_workflow.json   "$CONDUCTOR/metadata/workflow"
 
 echo -e "
 Done."
 
-curl -X PUT -H "Content-Type: application/json"  -d @../metadata/loan_sequential_workflow.json  "$API/metadata/workflow"
+curl -X PUT -H "Content-Type: application/json"  -d @../metadata/sequential_workflow.json  "$API/metadata/workflow"
