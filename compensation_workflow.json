@@ -1,5 +1,5 @@
 {
-  "name": "loan_compensation_workflow",
+  "name": "compensation_workflow",
   "description": "Compensate failed loan saga by reversing side effects",
   "version": 1,
   "schemaVersion": 2,
