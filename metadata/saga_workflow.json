@@ -1,9 +1,9 @@
 {
-  "name": "loan_saga_workflow",
+  "name": "saga_workflow",
   "description": "Personal loan origination & disbursement using Saga",
   "version": 1,
   "schemaVersion": 2,
-  "failureWorkflow": "loan_compensation_workflow",
+  "failureWorkflow": "compensation_workflow",
   "tasks": [
     {
       "name": "create_loan_app",
