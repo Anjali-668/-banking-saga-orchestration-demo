@@ -6,9 +6,6 @@
     "timeoutSeconds": 120,
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
-    "timeoutPolicy": "TIME_OUT_WF",
-    "ownerEmail": "anjali.sreekumar@ust.com",
-    "responseTimeoutSeconds": 30
   },
   {
     "name": "kyc_check",
@@ -17,9 +14,6 @@
     "timeoutSeconds": 120,
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
-    "timeoutPolicy": "TIME_OUT_WF",
-    "ownerEmail": "anjali.sreekumar@ust.com",
-    "responseTimeoutSeconds": 30
   },
   {
     "name": "credit_check",
@@ -28,9 +22,6 @@
     "timeoutSeconds": 120,
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
-    "timeoutPolicy": "TIME_OUT_WF",
-    "ownerEmail": "anjali.sreekumar@ust.com",
-    "responseTimeoutSeconds": 30
   },
   {
     "name": "underwrite_decision",
@@ -39,9 +30,6 @@
     "timeoutSeconds": 120,
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
-    "timeoutPolicy": "TIME_OUT_WF",
-    "ownerEmail": "anjali.sreekumar@ust.com",
-    "responseTimeoutSeconds": 30
   },
   {
     "name": "reserve_funds",
@@ -50,9 +38,6 @@
     "timeoutSeconds": 120,
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
-    "timeoutPolicy": "TIME_OUT_WF",
-    "ownerEmail": "anjali.sreekumar@ust.com",
-    "responseTimeoutSeconds": 30
   },
   {
     "name": "disburse_funds",
@@ -61,9 +46,6 @@
     "timeoutSeconds": 120,
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
-    "timeoutPolicy": "TIME_OUT_WF",
-    "ownerEmail": "anjali.sreekumar@ust.com",
-    "responseTimeoutSeconds": 30
   },
   {
     "name": "post_ledger",
@@ -72,16 +54,12 @@
     "timeoutSeconds": 120,
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
-    "timeoutPolicy": "TIME_OUT_WF",
-    "ownerEmail": "anjali.sreekumar@ust.com",
-    "responseTimeoutSeconds": 30
   },
   {
     "name": "send_success_notification",
     "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 1,
     "timeoutSeconds": 60,
-    "ownerEmail": "anjali.sreekumar@ust.com",
     "responseTimeoutSeconds": 30
   },
   {
@@ -90,8 +68,6 @@
     "retryCount": 2,
     "timeoutSeconds": 120,
     "responseTimeoutSeconds": 60
-    "ownerEmail": "anjali.sreekumar@ust.com",
-    "responseTimeoutSeconds": 30
   },
   {
     "name": "release_funds",
@@ -99,8 +75,6 @@
     "retryCount": 2,
     "timeoutSeconds": 120,
     "responseTimeoutSeconds": 60
-    "ownerEmail": "anjali.sreekumar@ust.com",
-    "responseTimeoutSeconds": 30
   },
   {
     "name": "cancel_loan_app",
@@ -108,8 +82,6 @@
     "retryCount": 2,
     "timeoutSeconds": 120,
     "responseTimeoutSeconds": 60
-    "ownerEmail": "anjali.sreekumar@ust.com",
-    "responseTimeoutSeconds": 30
   },
   {
     "name": "send_failure_notification",
@@ -154,7 +126,5 @@
     "description": "Notify user about loan rejection",
     "responseTimeoutSeconds": 30,
     "timeoutSeconds": 60
-    "ownerEmail": "anjali.sreekumar@ust.com",
-    "responseTimeoutSeconds": 30
   }
 ]
