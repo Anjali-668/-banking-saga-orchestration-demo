@@ -1,86 +1,90 @@
-{
-  "name": "saga_workflow",
-  "description": "Personal loan origination & disbursement using Saga",
-  "version": 1,
-  "schemaVersion": 2,
-  "failureWorkflow": "compensation_workflow",
-  "tasks": [
-    {
-      "name": "create_loan_app",
-      "taskReferenceName": "create",
-      "type": "SIMPLE",
-      "inputParameters": {
-        "applicant": "${workflow.input.applicant}",
-        "amount": "${workflow.input.amount}"
+[
+  {
+    "name": "saga_workflow",
+    "description": "Personal loan origination & disbursement using Saga",
+    "version": 1,
+    "schemaVersion": 2,
+    "ownerEmail": "anjali.sreekumar@example.com",
+    "inputParameters": ["applicant", "amount"],
+    "failureWorkflow": "compensation_workflow",
+    "tasks": [
+      {
+        "name": "create_loan_app",
+        "taskReferenceName": "create",
+        "type": "SIMPLE",
+        "inputParameters": {
+          "applicant": "${workflow.input.applicant}",
+          "amount": "${workflow.input.amount}"
+        }
+      },
+      {
+        "name": "kyc_check",
+        "taskReferenceName": "kyc",
+        "type": "SIMPLE",
+        "inputParameters": {
+          "customerId": "${create.output.customerId}"
+        }
+      },
+      {
+        "name": "credit_check",
+        "taskReferenceName": "credit",
+        "type": "SIMPLE",
+        "inputParameters": {
+          "customerId": "${create.output.customerId}",
+          "amount": "${workflow.input.amount}"
+        }
+      },
+      {
+        "name": "underwrite_decision",
+        "taskReferenceName": "uw",
+        "type": "SIMPLE",
+        "inputParameters": {
+          "score": "${credit.output.score}",
+          "amount": "${workflow.input.amount}"
+        }
+      },
+      {
+        "name": "reserve_funds",
+        "taskReferenceName": "reserve",
+        "type": "SIMPLE",
+        "inputParameters": {
+          "accountId": "${create.output.accountId}",
+          "amount": "${workflow.input.amount}"
+        }
+      },
+      {
+        "name": "disburse_funds",
+        "taskReferenceName": "disburse",
+        "type": "SIMPLE",
+        "inputParameters": {
+          "fromAccountId": "${reserve.output.vaultAccountId}",
+          "toAccountId": "${create.output.accountId}",
+          "amount": "${workflow.input.amount}"
+        }
+      },
+      {
+        "name": "post_ledger",
+        "taskReferenceName": "ledger",
+        "type": "SIMPLE",
+        "inputParameters": {
+          "loanId": "${create.output.loanId}",
+          "amount": "${workflow.input.amount}"
+        }
+      },
+      {
+        "name": "send_success_notification",
+        "taskReferenceName": "notify_success",
+        "type": "SIMPLE",
+        "inputParameters": {
+          "loanId": "${create.output.loanId}",
+          "channel": "EMAIL"
+        }
       }
-    },
-    {
-      "name": "kyc_check",
-      "taskReferenceName": "kyc",
-      "type": "SIMPLE",
-      "inputParameters": {
-        "customerId": "${create.output.customerId}"
-      }
-    },
-    {
-      "name": "credit_check",
-      "taskReferenceName": "credit",
-      "type": "SIMPLE",
-      "inputParameters": {
-        "customerId": "${create.output.customerId}",
-        "amount": "${workflow.input.amount}"
-      }
-    },
-    {
-      "name": "underwrite_decision",
-      "taskReferenceName": "uw",
-      "type": "SIMPLE",
-      "inputParameters": {
-        "score": "${credit.output.score}",
-        "amount": "${workflow.input.amount}"
-      }
-    },
-    {
-      "name": "reserve_funds",
-      "taskReferenceName": "reserve",
-      "type": "SIMPLE",
-      "inputParameters": {
-        "accountId": "${create.output.accountId}",
-        "amount": "${workflow.input.amount}"
-      }
-    },
-    {
-      "name": "disburse_funds",
-      "taskReferenceName": "disburse",
-      "type": "SIMPLE",
-      "inputParameters": {
-        "fromAccountId": "${reserve.output.vaultAccountId}",
-        "toAccountId": "${create.output.accountId}",
-        "amount": "${workflow.input.amount}"
-      }
-    },
-    {
-      "name": "post_ledger",
-      "taskReferenceName": "ledger",
-      "type": "SIMPLE",
-      "inputParameters": {
-        "loanId": "${create.output.loanId}",
-        "amount": "${workflow.input.amount}"
-      }
-    },
-    {
-      "name": "send_success_notification",
-      "taskReferenceName": "notify_success",
-      "type": "SIMPLE",
-      "inputParameters": {
-        "loanId": "${create.output.loanId}",
-        "channel": "EMAIL"
-      }
+    ],
+    "outputParameters": {
+      "loanId": "${create.output.loanId}",
+      "status": "APPROVED",
+      "amount": "${workflow.input.amount}"
     }
-  ],
-  "outputParameters": {
-    "loanId": "${create.output.loanId}",
-    "status": "APPROVED",
-    "amount": "${workflow.input.amount}"
   }
-}
+]
