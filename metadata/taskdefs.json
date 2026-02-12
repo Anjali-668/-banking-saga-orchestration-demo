@@ -4,62 +4,108 @@
     "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+<<<<<<< Updated upstream
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
+=======
+    "timeoutPolicy": "TIME_OUT_WF",
+    "ownerEmail": "anjali.sreekumar@ust.com",
+    "responseTimeoutSeconds": 30
+>>>>>>> Stashed changes
   },
   {
     "name": "kyc_check",
     "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+<<<<<<< Updated upstream
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
+=======
+    "timeoutPolicy": "TIME_OUT_WF",
+    "ownerEmail": "anjali.sreekumar@ust.com",
+    "responseTimeoutSeconds": 30
+>>>>>>> Stashed changes
   },
   {
     "name": "credit_check",
     "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+<<<<<<< Updated upstream
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
+=======
+    "timeoutPolicy": "TIME_OUT_WF",
+    "ownerEmail": "anjali.sreekumar@ust.com",
+    "responseTimeoutSeconds": 30
+>>>>>>> Stashed changes
   },
   {
     "name": "underwrite_decision",
     "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+<<<<<<< Updated upstream
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
+=======
+    "timeoutPolicy": "TIME_OUT_WF",
+    "ownerEmail": "anjali.sreekumar@ust.com",
+    "responseTimeoutSeconds": 30
+>>>>>>> Stashed changes
   },
   {
     "name": "reserve_funds",
     "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+<<<<<<< Updated upstream
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
+=======
+    "timeoutPolicy": "TIME_OUT_WF",
+    "ownerEmail": "anjali.sreekumar@ust.com",
+    "responseTimeoutSeconds": 30
+>>>>>>> Stashed changes
   },
   {
     "name": "disburse_funds",
     "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+<<<<<<< Updated upstream
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
+=======
+    "timeoutPolicy": "TIME_OUT_WF",
+    "ownerEmail": "anjali.sreekumar@ust.com",
+    "responseTimeoutSeconds": 30
+>>>>>>> Stashed changes
   },
   {
     "name": "post_ledger",
     "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+<<<<<<< Updated upstream
     "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
+=======
+    "timeoutPolicy": "TIME_OUT_WF",
+    "ownerEmail": "anjali.sreekumar@ust.com",
+    "responseTimeoutSeconds": 30
+>>>>>>> Stashed changes
   },
   {
     "name": "send_success_notification",
     "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 1,
     "timeoutSeconds": 60,
+<<<<<<< Updated upstream
+=======
+    "ownerEmail": "anjali.sreekumar@ust.com",
+>>>>>>> Stashed changes
     "responseTimeoutSeconds": 30
   },
   {
@@ -67,27 +113,43 @@
     "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+<<<<<<< Updated upstream
     "responseTimeoutSeconds": 60
+=======
+    "ownerEmail": "anjali.sreekumar@ust.com",
+    "responseTimeoutSeconds": 30
+>>>>>>> Stashed changes
   },
   {
     "name": "release_funds",
     "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+<<<<<<< Updated upstream
     "responseTimeoutSeconds": 60
+=======
+    "ownerEmail": "anjali.sreekumar@ust.com",
+    "responseTimeoutSeconds": 30
+>>>>>>> Stashed changes
   },
   {
     "name": "cancel_loan_app",
     "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+<<<<<<< Updated upstream
     "responseTimeoutSeconds": 60
+=======
+    "ownerEmail": "anjali.sreekumar@ust.com",
+    "responseTimeoutSeconds": 30
+>>>>>>> Stashed changes
   },
   {
     "name": "send_failure_notification",
     "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 1,
     "timeoutSeconds": 60,
+<<<<<<< Updated upstream
     "responseTimeoutSeconds": 30
   },
   {
@@ -126,5 +188,9 @@
     "description": "Notify user about loan rejection",
     "responseTimeoutSeconds": 30,
     "timeoutSeconds": 60
+=======
+    "ownerEmail": "anjali.sreekumar@ust.com",
+    "responseTimeoutSeconds": 30
+>>>>>>> Stashed changes
   }
 ]
