@@ -1,74 +1,99 @@
 [
   {
     "name": "create_loan_app",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+    "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
   },
   {
     "name": "kyc_check",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+    "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
   },
   {
     "name": "credit_check",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+    "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
   },
   {
     "name": "underwrite_decision",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+    "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
   },
   {
     "name": "reserve_funds",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+    "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
   },
   {
     "name": "disburse_funds",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+    "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
   },
   {
     "name": "post_ledger",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
     "timeoutSeconds": 120,
+    "responseTimeoutSeconds": 60,
     "timeoutPolicy": "TIME_OUT_WF"
   },
   {
     "name": "send_success_notification",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 1,
-    "timeoutSeconds": 60
+    "timeoutSeconds": 60,
+    "responseTimeoutSeconds": 30
   },
   {
     "name": "rollback_ledger",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
-    "timeoutSeconds": 120
+    "timeoutSeconds": 120,
+    "responseTimeoutSeconds": 60
   },
   {
     "name": "release_funds",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
-    "timeoutSeconds": 120
+    "timeoutSeconds": 120,
+    "responseTimeoutSeconds": 60
   },
   {
     "name": "cancel_loan_app",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 2,
-    "timeoutSeconds": 120
+    "timeoutSeconds": 120,
+    "responseTimeoutSeconds": 60
   },
   {
     "name": "send_failure_notification",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "retryCount": 1,
-    "timeoutSeconds": 60
+    "timeoutSeconds": 60,
+    "responseTimeoutSeconds": 30
   },
   {
     "createdBy": "anjali",
     "name": "fraud_check",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "description": "Risk engine rule evaluation",
     "responseTimeoutSeconds": 30,
     "timeoutSeconds": 60,
@@ -81,6 +106,7 @@
   {
     "createdBy": "anjali",
     "name": "after_wait_audit",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "description": "Audit after WAIT",
     "responseTimeoutSeconds": 30,
     "timeoutSeconds": 60
@@ -88,13 +114,15 @@
   {
     "createdBy": "anjali",
     "name": "escalate_to_manual_review",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "description": "Escalate workflow failures",
-    "responseTimeoutSeconds": 30,
+    "responseTimeoutSeconds": 60,
     "timeoutSeconds": 120
   },
   {
     "createdBy": "anjali",
     "name": "send_rejection_notification",
+    "ownerEmail": "anjali.sreekumar@example.com",
     "description": "Notify user about loan rejection",
     "responseTimeoutSeconds": 30,
     "timeoutSeconds": 60
