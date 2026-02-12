@@ -1,44 +1,49 @@
-{
-  "name": "compensation_workflow",
-  "description": "Compensate failed loan saga by reversing side effects",
-  "version": 1,
-  "schemaVersion": 2,
-  "tasks": [
-    {
-      "name": "rollback_ledger",
-      "taskReferenceName": "rollback_ledger",
-      "type": "SIMPLE",
-      "optional": true,
-      "inputParameters": {
-        "loanId": "${workflow.input.loanId}"
+[
+  {
+    "name": "compensation_workflow",
+    "description": "Compensate failed loan saga by reversing side effects",
+    "version": 1,
+    "schemaVersion": 2,
+    "ownerEmail": "anjali.sreekumar@example.com",
+    "inputParameters": ["loanId", "accountId", "amount", "reason"],
+
+    "tasks": [
+      {
+        "name": "rollback_ledger",
+        "taskReferenceName": "rollback_ledger",
+        "type": "SIMPLE",
+        "optional": true,
+        "inputParameters": {
+          "loanId": "${workflow.input.loanId}"
+        }
+      },
+      {
+        "name": "release_funds",
+        "taskReferenceName": "release_funds",
+        "type": "SIMPLE",
+        "optional": true,
+        "inputParameters": {
+          "accountId": "${workflow.input.accountId}",
+          "amount": "${workflow.input.amount}"
+        }
+      },
+      {
+        "name": "cancel_loan_app",
+        "taskReferenceName": "cancel_loan",
+        "type": "SIMPLE",
+        "inputParameters": {
+          "loanId": "${workflow.input.loanId}"
+        }
+      },
+      {
+        "name": "send_failure_notification",
+        "taskReferenceName": "notify_failure",
+        "type": "SIMPLE",
+        "inputParameters": {
+          "loanId": "${workflow.input.loanId}",
+          "reason": "${workflow.input.reason}"
+        }
       }
-    },
-    {
-      "name": "release_funds",
-      "taskReferenceName": "release_funds",
-      "type": "SIMPLE",
-      "optional": true,
-      "inputParameters": {
-        "accountId": "${workflow.input.accountId}",
-        "amount": "${workflow.input.amount}"
-      }
-    },
-    {
-      "name": "cancel_loan_app",
-      "taskReferenceName": "cancel_loan",
-      "type": "SIMPLE",
-      "inputParameters": {
-        "loanId": "${workflow.input.loanId}"
-      }
-    },
-    {
-      "name": "send_failure_notification",
-      "taskReferenceName": "notify_failure",
-      "type": "SIMPLE",
-      "inputParameters": {
-        "loanId": "${workflow.input.loanId}",
-        "reason": "${workflow.input.reason}"
-      }
-    }
-  ]
-}
+    ]
+  }
+]
