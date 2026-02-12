@@ -1,74 +1,80 @@
-{
-  "name": "sequential_workflow",
-  "version": 1,
-  "schemaVersion": 2,
-  "inputParameters": ["applicant", "amount"],
-  "tasks": [
+[
+  {
+    "name": "sequential_workflow",
+    "description": "Demonstrates sequential flow with a parallel segment, a decision, and a wait",
+    "version": 1,
+    "schemaVersion": 2,
+    "ownerEmail": "anjali.sreekumar@example.com",
+    "inputParameters": ["applicant", "amount"],
 
-    { "name": "create_loan_app", "taskReferenceName": "create", "type": "SIMPLE" },
+    "tasks": [
+      { 
+        "name": "create_loan_app", 
+        "taskReferenceName": "create", 
+        "type": "SIMPLE" 
+      },
 
-    {
-      "type": "FORK_JOIN",
-      "taskReferenceName": "parallel_checks",
-      "forkTasks": [
-        [
-          { "name": "kyc_check", "taskReferenceName": "kyc", "type": "SIMPLE" }
-        ],
-        [
-          { "name": "credit_check", "taskReferenceName": "credit", "type": "SIMPLE" },
-          { "name": "fraud_check", "taskReferenceName": "fraud", "type": "SIMPLE" }
-        ]
-      ]
-    },
-    { "type": "JOIN", "taskReferenceName": "join_checks" },
-
-    { "name": "underwrite_decision", "taskReferenceName": "decision", "type": "SIMPLE" },
-
-    {
-      "type": "DECISION",
-      "taskReferenceName": "route_flow",
-      "caseValueParam": "decision.output.status",
-      "decisionCases": {
-        "APPROVE": [
-
-          {
-            "name": "reserve_funds",
-            "taskReferenceName": "reserve",
-            "type": "SIMPLE",
-            "retryCount": 3,
-            "retryLogic": "FIXED",
-            "retryDelaySeconds": 10
-          },
-
-          {
-            "type": "WAIT",
-            "taskReferenceName": "wait_before_disburse",
-            "inputParameters": { "duration": "5s" }
-          },
-
-          { "name": "after_wait_audit", "taskReferenceName": "audit", "type": "SIMPLE" },
-
-          { "name": "disburse_funds", "taskReferenceName": "disburse", "type": "SIMPLE" },
-          { "name": "post_ledger", "taskReferenceName": "ledger", "type": "SIMPLE" },
-          { "name": "send_success_notification", "taskReferenceName": "success", "type": "SIMPLE" }
-        ],
-
-        "REJECT": [
-          {
-            "name": "send_rejection_notification",
-            "taskReferenceName": "reject_notify",
-            "type": "SIMPLE"
-          }
+      {
+        "type": "FORK_JOIN",
+        "taskReferenceName": "parallel_checks",
+        "forkTasks": [
+          [
+            { "name": "kyc_check", "taskReferenceName": "kyc", "type": "SIMPLE" }
+          ],
+          [
+            { "name": "credit_check", "taskReferenceName": "credit", "type": "SIMPLE" },
+            { "name": "fraud_check",  "taskReferenceName": "fraud",  "type": "SIMPLE" }
+          ]
         ]
       },
 
-      "defaultCase": [
-        {
-          "name": "send_rejection_notification",
-          "taskReferenceName": "reject_default",
-          "type": "SIMPLE"
-        }
-      ]
-    }
-  ]
-}
+      {
+        "type": "JOIN",
+        "taskReferenceName": "join_checks",
+        "joinOn": ["kyc", "fraud"]
+      },
+
+      { 
+        "name": "underwrite_decision", 
+        "taskReferenceName": "decision", 
+        "type": "SIMPLE" 
+      },
+
+      {
+        "type": "DECISION",
+        "taskReferenceName": "route_flow",
+        "caseValueParam": "decision.output.status",
+
+        "decisionCases": {
+          "APPROVE": [
+            {
+              "name": "reserve_funds",
+              "taskReferenceName": "reserve",
+              "type": "SIMPLE",
+              "retryCount": 3,
+              "retryLogic": "FIXED",
+              "retryDelaySeconds": 10
+            },
+            {
+              "type": "WAIT",
+              "taskReferenceName": "wait_before_disburse",
+              "inputParameters": { "duration": "5s" }
+            },
+            { "name": "after_wait_audit",  "taskReferenceName": "audit",    "type": "SIMPLE" },
+            { "name": "disburse_funds",    "taskReferenceName": "disburse", "type": "SIMPLE" },
+            { "name": "post_ledger",       "taskReferenceName": "ledger",   "type": "SIMPLE" },
+            { "name": "send_success_notification", "taskReferenceName": "success", "type": "SIMPLE" }
+          ],
+
+          "REJECT": [
+            { "name": "send_rejection_notification", "taskReferenceName": "reject_notify", "type": "SIMPLE" }
+          ]
+        },
+
+        "defaultCase": [
+          { "name": "send_rejection_notification", "taskReferenceName": "reject_default", "type": "SIMPLE" }
+        ]
+      }
+    ]
+  }
+]
